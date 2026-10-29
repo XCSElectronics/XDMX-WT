@@ -1,0 +1,22 @@
+# KiCad
+.history/
+*-backups/
+*.kicad_prl
+*.lck
+~*.lck
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-cache.lib
+*-rescue.lib
+*-rescue.dcm
+fp-info-cache
+_autosave-*
+*.000
+*.net
+*.xml
+
+# OS
+Thumbs.db
+.DS_Store

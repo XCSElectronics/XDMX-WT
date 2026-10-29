@@ -1,0 +1,32 @@
+(version 1)
+# Primario de 230 V: 8 mm a todo lo que no sea primario (fuga y distancia en el aire)
+(rule "PRIMARIO a SELV"
+(constraint clearance (min 8mm))
+(condition "A.NetClass == 'PRIMARIO' && B.NetClass != 'PRIMARIO'"))
+(rule "PRIMARIO fuga"
+(constraint creepage (min 8mm))
+(condition "A.NetClass == 'PRIMARIO' && B.NetClass != 'PRIMARIO'"))
+# L y N entre sí
+(rule "PRIMARIO L-N"
+(constraint clearance (min 3mm))
+(condition "A.NetClass == 'PRIMARIO' && B.NetClass == 'PRIMARIO' && A.Net != B.Net"))
+(rule "PRIMARIO sin vías"
+(constraint disallow via)
+(condition "A.NetClass == 'PRIMARIO'"))
+# Barrera del lado aislado: 6 mm entre las redes ISO y el SELV (optoacopladores >= 7,7 mm)
+(rule "BARRERA"
+(constraint clearance (min 6mm))
+(condition "A.NetClass == 'ISO' && B.NetClass != 'ISO' && B.NetClass != 'PE' && !A.memberOfFootprint('U5') && !
+B.memberOfFootprint('U5')"))
+(rule "BARRERA fuga"
+(constraint creepage (min 6mm))
+(condition "A.NetClass == 'ISO' && B.NetClass != 'ISO' && B.NetClass != 'PE' && !A.memberOfFootprint('U5') && !
+B.memberOfFootprint('U5')"))
+# U5 (DC-DC SIP-4): sus pines 2 y 3 están a 2,54 mm; aislamiento funcional del propio módulo (1500 VDC)
+(rule "BARRERA U5"
+(constraint clearance (min 1mm))
+(condition "A.memberOfFootprint('U5') && A.NetClass != B.NetClass"))
+# Tierra de protección: 2 mm a cualquier otra red
+(rule "PE"
+(constraint clearance (min 2mm))
+(condition "A.NetClass == 'PE' && B.NetClass != 'PE'"))
