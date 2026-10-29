@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "734336d2-ac28-41ea-b00b-9aa4fc29fa01")
+	(uuid "6c7be974-ff51-4670-99b5-43782d7a0c3d")
 	(paper "A4")
 	(lib_symbols
 		(symbol "43045-1012:43045-1012"
@@ -1356,7 +1356,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "00953d70-83b7-4f9e-843a-a0e398e31e67")
-		(property "Reference" "R3"
+		(property "Reference" "R1"
 			(at 109.22 86.36 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1418,7 +1418,7 @@
 		(instances
 			(project "XDMX-WT"
 				(path "/81fc2a60-bc27-447a-859e-9589360cae3c/4fa36aa0-c61b-4d75-9356-c24a00001160"
-					(reference "R3")
+					(reference "R1")
 					(unit 1)
 				)
 			)
